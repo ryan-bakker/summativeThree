@@ -1,0 +1,76 @@
+@use "colors";
+
+.your-selling-wrapper {
+    width: 90%;
+    margin: auto;
+    margin-top: 30px;
+
+    h1 {
+        text-align: center;
+    }
+
+    .item-container {
+        border-bottom: 1px solid colors.$gray;
+        padding-bottom: 15px;
+        display: flex;
+        gap: 20px;
+
+        .image-container img {
+            width: 120px;
+        }
+
+        .item-details {
+            width: 200px;
+
+            h4 {
+                margin-top: 0;
+                margin-bottom: 2px;
+                white-space: nowrap;
+            }
+
+            .item-info {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 30px;
+
+                .price {
+                    color: colors.$red;
+                }
+
+                div {
+                    display: flex;
+                    align-items: center;
+                }
+
+                .favorite {
+                    color: colors.$pink;
+                    font-size: 20px;
+                }
+
+                .comment {
+                    color: colors.$blue;
+                    font-size: 20px;
+                }
+            }
+
+            .edit-delete {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                height: 35px;
+                
+
+                p {
+                    text-decoration: underline;
+                    color: colors.$dark-gray;
+                }
+
+                .trash {
+                    color: colors.$dark-gray;
+                    font-size: 25px;
+                }
+            }
+        }
+    }
+}

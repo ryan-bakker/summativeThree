@@ -1,0 +1,239 @@
+@use "styles/_colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;&display=swap");
+
+.nav-buttons {
+  width: 100%;
+  // position: absolute;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  // margin-top: -40px;
+  margin-top: -50px;
+  padding-bottom: 15px;
+  // padding-top: 20px;
+  // z-index: -10;
+  z-index: 0;
+  background-color: colors.$blue;
+}
+
+.nav-buttons a {
+  color: black;
+  text-decoration: none;
+  font-weight: 500;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.list-item-container {
+  margin-top: 120px;
+  padding-bottom: 50px;
+}
+
+// --- Products ---
+.container {
+  // padding: 0px 50px;
+  margin: 5%;
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h1 {
+    margin: 0.7 0rem;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+}
+.item-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  // display: flex;
+  // flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 155px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 8px 6px;
+}
+
+.item-thumbnail {
+  height: 130px;
+  width: 100%;
+  object-fit: fill;
+}
+
+.price {
+  color: colors.$red;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.item-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.item-area {
+  font-size: 12px;
+  color: colors.$gray;
+}
+
+// --- Product Modal
+
+.close-button {
+  background: none;
+  border: none;
+  position: absolute;
+  padding: 0;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+}
+
+.modal-thumbnail {
+  width: 100%;
+}
+
+.modal-status {
+  text-decoration: underline;
+  font-size: 16px;
+  text-align: center;
+}
+
+.modal-name {
+  font-size: 25px;
+  text-align: center;
+}
+
+.modal-price {
+  color: colors.$red;
+  font-size: 25px;
+  text-align: center;
+}
+
+.modal-title {
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.modal-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.modal-detail {
+  width: 100px;
+}
+
+.details-label {
+  text-transform: uppercase;
+  color: colors.$gray;
+  font-size: 12px;
+}
+
+hr {
+  margin-top: 4px;
+}
+
+.seller-details {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.modal-seller-location {
+  text-transform: uppercase;
+  color: colors.$gray;
+  font-size: 12px;
+}
+
+.modal-seller-score {
+  background-color: colors.$pink;
+  width: min-content;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+  color: white;
+}
+
+.modal-buy-btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  color: white;
+  background-color: colors.$red;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+// --- Nav
+.nav {
+  height: 80px;
+  background-color: colors.$blue;
+  font-size: 30px;
+  font-weight: 800;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+
+// --- Utilities
+
+.shadow {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+// --- Global
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: 500;
+}
+
+p {
+  font-weight: 400;
+}

@@ -1,29 +1,12 @@
 @use "styles/_colors.scss";
 
-.nav-buttons {
+.App {
+  height: 100vh;
   width: 100%;
-  // position: absolute;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  gap: 100px;
-  // margin-top: -40px;
-  margin-top: -50px;
-  padding-bottom: 15px;
-  // padding-top: 20px;
-  // z-index: -10;
-  z-index: 0;
-  background-color: colors.$blue;
-}
-
-.nav-buttons a {
-  color: black;
-  text-decoration: none;
-  font-weight: 500;
-
-  &:hover {
-    text-decoration: underline;
-  }
+  background-image: url('./images/home-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .list-item-container {
@@ -187,21 +170,6 @@ hr {
   font-size: 18px;
   font-weight: 600;
   border-radius: 4px;
-}
-
-// --- Nav
-.nav {
-  height: 80px;
-  background-color: colors.$blue;
-  font-size: 30px;
-  font-weight: 800;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
 }
 
 // --- Utilities

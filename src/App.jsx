@@ -2,46 +2,64 @@ import React from "react";
 import Products from "./Components/Products";
 import Login from "./Components/Login";
 import { Routes, Route, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import "./App.scss";
-import Nav from "./Components/Nav";
+import "./styles/nav.scss";
+import "./styles/home.scss";
 import UserAccount from "./Components/UserAccount";
 import YourSelling from "./Components/YourSelling";
 import ListItem from "./Components/ListItem";
-import { useEffect, useState } from "react";
+import Home from "./Components/Home";
 
 function App() {
+  return (
+    <div className="App">
+      <Menu />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/listings" element={<Products />} />
+        <Route path="/add-listing" element={<ListItem />} />
+        <Route path="/delete-listing" element={<ListItem />} />
+      </Routes>
+    </div>
+  );
+}
+
+function Menu() {
   const [logged, setLogin] = useState(false);
   const isLoggedIn = (isLoggedIn) => {
     setLogin(isLoggedIn);
   };
-  return (
-    <div className="App">
-      <Nav />
-      <div className="nav-buttons">
-        <Link className="link-item" to="/">
-          Products
-        </Link>
-        <Link className="link-item" to="/list-item">
-          List Item
-        </Link>
-      </div>
 
-      <Routes>
-        <Route path="/" element={<Products />} />
-        <Route path="/add-listing" element={<ListItem />} />
-        <Route path="/delete-listing" element={<UserAccount />} />
-      </Routes>
-      <Login onUpdateLoggedInState={isLoggedIn} />
-      {logged && (
-        <>
-          <li>
-            <Link to="/add-listing">Add Listing</Link>
-          </li>
-          <li>
-            <Link to="/delete-listing">Delete Listing</Link>
-          </li>
-        </>
-      )}
+  return (
+    <div className="nav">
+      <Link className="site-logo" to="/">
+        Retail<span>er</span>
+      </Link>
+      <ul className="nav-list">
+        <li>
+          <Link className="link-item" to="/">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link className="link-item" to="/listings">
+            Listings
+          </Link>
+        </li>
+        {logged && (
+          <>
+            <li>
+              <Link to="/delete-listing" className="link-item">
+                My Listings
+              </Link>
+            </li>
+          </>
+        )}
+        <li className="login-graphic">
+          <Login onUpdateLoggedInState={isLoggedIn} />
+        </li>
+      </ul>
     </div>
   );
 }

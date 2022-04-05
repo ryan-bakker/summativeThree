@@ -3,6 +3,7 @@ import { RiLoginBoxLine } from "react-icons/ri";
 import Cookies from "js-cookie"; //https://www.npmjs.com/package/js-cookie
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
 
 function Login(props) {
   const navigate = useNavigate();
@@ -37,26 +38,33 @@ function Login(props) {
       Cookies.set("logged_in", true, { expires: 1 });
       setLoggedInStatus(true);
       props.onUpdateLoggedInState(true);
+      hideLoginBtn();
     }
+  };
+
+  const hideLoginBtn = () => {
+    document.querySelector(".login-wrapper span").classList.add("log-remove");
+  };
+
+  const showLoginBtn = () => {
+    document.querySelector(".login-wrapper span").classList.add("log-show");
   };
 
   const onLogout = () => {
     Cookies.remove("logged_in");
     props.onUpdateLoggedInState(false);
     navigate("/");
+    showLoginBtn();
   };
 
   return (
     <div className="login-wrapper">
       <p onClick={showLoginForm}>
-        <span>LOGIN</span>{" "}
-        <RiLoginBoxLine
-          className={isLoggedIn ? "isLoggedIn" : "isNotLoggedIn"}
-        />
+        <span>Login</span>{" "}
       </p>
 
       {showLogin && !isLoggedIn && (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} className="login-window">
           {/* <input type='email' defaultValue='kevin.dowd@gmail.com' placeholder='email' ref={emailInputRef} required /> */}
           <input
             type="email"
@@ -64,12 +72,16 @@ function Login(props) {
             ref={emailInputRef}
             required
           />
-          <button type="submit">Login</button>
+          <button type="submit" className="login-submit">
+            <FaAngleRight />
+          </button>
         </form>
       )}
       {showLogin && isLoggedIn && (
         <form onSubmit={onLogout}>
-          <button type="submit">Logout</button>
+          <button type="submit" className="logout">
+            Logout
+          </button>
         </form>
       )}
     </div>

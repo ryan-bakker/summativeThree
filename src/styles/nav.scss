@@ -3,16 +3,16 @@
 
 .nav {
     height: 100px;
-    // background-color: grey;
+    // background-color: #F8F8F8;
     font-size: 20px;
     font-weight: 800;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: fixed;
     width: 100%;
     top: 0;
+    z-index: 10;
 
     a {
         text-decoration: none;
@@ -35,7 +35,7 @@
     }
 
     .nav-list {
-        width: 53%;
+        width: 52%;
         list-style-type: none;
         display: flex;
         align-items: center;

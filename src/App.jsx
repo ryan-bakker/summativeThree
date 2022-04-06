@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import "./App.scss";
 import "./styles/nav.scss";
 import "./styles/home.scss";
+import "./styles/products.scss";
 import UserAccount from "./Components/UserAccount";
 import YourSelling from "./Components/YourSelling";
 import ListItem from "./Components/ListItem";
@@ -49,6 +50,11 @@ function Menu() {
         </li>
         {logged && (
           <>
+            <li>
+              <Link to="/add-listing" className="link-item">
+                Add Listing
+              </Link>
+            </li>
             <li>
               <Link to="/delete-listing" className="link-item">
                 My Listings

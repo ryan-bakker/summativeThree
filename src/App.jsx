@@ -11,6 +11,8 @@ import UserAccount from "./Components/UserAccount";
 import YourSelling from "./Components/YourSelling";
 import ListItem from "./Components/ListItem";
 import Home from "./Components/Home";
+import MyListings from "./Components/MyListings";
+import UpdateListing from "./Components/UpdateListing";
 
 function App() {
   return (
@@ -20,7 +22,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/listings" element={<Products />} />
         <Route path="/add-listing" element={<ListItem />} />
-        <Route path="/delete-listing" element={<ListItem />} />
+        <Route path="/my-listings" element={<MyListings />} />
+        <Route path="/update-listing" element={<UpdateListing />} />
       </Routes>
     </div>
   );
@@ -56,7 +59,7 @@ function Menu() {
               </Link>
             </li>
             <li>
-              <Link to="/delete-listing" className="link-item">
+              <Link to="/my-listings" className="link-item">
                 My Listings
               </Link>
             </li>

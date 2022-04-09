@@ -100,7 +100,7 @@
 .close {
   display: flex;
   justify-content: flex-start;
-  margin: 1rem 0;
+  
 }
 
 .check-success {
@@ -108,4 +108,17 @@
   flex-direction: column;
   align-items: center;
   margin: 2rem;
+
+  h4 {
+    @include fonts.zeitung-semi-bold;
+    color: colors.$retailer-grey;
+    font-size: 23px;
+    margin-bottom: 0;
+  }
+
+  p {
+    margin-top: 5px;
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+  }
 }

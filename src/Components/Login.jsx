@@ -4,6 +4,7 @@ import Cookies from "js-cookie"; //https://www.npmjs.com/package/js-cookie
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
+import UserAccount from "./UserAccount";
 
 function Login(props) {
   const navigate = useNavigate();
@@ -14,12 +15,12 @@ function Login(props) {
   const [allowedEmailsArray, setAllowedEmailsArray] = useState([
     "kevin.dowd@gmail.com",
     "ryan@ryanbakker.site",
+    "example@email.com",
   ]);
 
   useEffect(() => {
-    console.log("------> ", Cookies.get("logged_in"));
+    console.log("Logged in =", Cookies.get("logged_in"));
     if (Cookies.get("logged_in")) {
-      console.log("------> ", "logged in from earlier/before");
       setLoggedInStatus(true);
       props.onUpdateLoggedInState(true);
     }
@@ -32,6 +33,7 @@ function Login(props) {
   const onSubmit = (event) => {
     event.preventDefault();
     let userEmail = emailInputRef.current.value;
+    console.log(userEmail);
 
     if (allowedEmailsArray.includes(userEmail)) {
       console.log("------> ", "allowed");

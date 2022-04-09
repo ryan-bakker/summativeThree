@@ -2,10 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { IoClose } from "react-icons/io5";
-import { HiUserCircle } from "react-icons/hi";
-import { MdOutlineStarPurple500 } from "react-icons/md";
-import { MdOutlineStarHalf } from "react-icons/md";
 import Background from "../images/half-bg.png";
 import ProductsVector from "../images/listingsVector.png";
 import ModalRightBg from "../images/modalGraphicRight.png";
@@ -126,7 +122,7 @@ export default function Products() {
                         {item.year} {item.brand} {item.model}
                       </div>
                       <div className="item-detail">
-                        {item.odometer} &nbsp;|&nbsp; {item.engine}{" "}
+                        {item.odometer}km &nbsp;|&nbsp; {item.engine}cc{" "}
                         &nbsp;|&nbsp; {item.fuel} &nbsp;|&nbsp;{" "}
                         {item.transmission}
                       </div>
@@ -206,7 +202,7 @@ export default function Products() {
               {year}&nbsp;{brand}&nbsp;{model}
             </div>
             <div className="modal-details">
-              {odometer} &nbsp;|&nbsp; {engine} &nbsp;|&nbsp; {fuel}{" "}
+              {odometer}km &nbsp;|&nbsp; {engine}cc &nbsp;|&nbsp; {fuel}{" "}
               &nbsp;|&nbsp; {transmission}
             </div>
 

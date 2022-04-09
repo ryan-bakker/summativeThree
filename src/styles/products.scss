@@ -335,3 +335,334 @@ a {
     display: block;
     color: transparent;
 }
+
+
+// My listings styling
+
+.my-listings-container {
+  width: 730px;
+  margin-left: 110px;
+  margin-top: 100px;
+}
+
+.item-wrapper {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.card-container {
+    width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  color: colors.$retailer-grey;
+  border-radius: 10px;
+}
+
+.item-thumbnail {
+  height: 100%;
+  width: 43%;
+  object-fit: fill;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.item-details {
+  display: flex;
+  flex-direction: column;
+  height: 75%;
+  margin: auto;
+  width: 46%;
+  padding: 8px 6px;
+
+  .item-title {
+      @include fonts.zeitung-bold;
+      font-size: 20px
+  }
+
+  .item-detail {
+      @include fonts.outfit-reg;
+      font-size: 14px;
+      padding-top: 3px
+  }
+
+  .item-feature {
+      @include fonts.outfit-light;
+      font-size: 12px;
+      padding-top: 20px;
+      padding-bottom: 14px;
+  }
+
+  hr {
+      border-top: 0.3px solid #d6d6d6;
+      background: none;
+      border-bottom: none
+  }
+
+  .item-price {
+      @include fonts.zeitung-semi-bold;
+      padding-top: 14px;
+      font-size: 17px;
+  }
+}
+
+
+//   Item modal styling 
+
+.modal-background {
+  position: absolute;
+  height: 70%;
+  top: 0;
+  right: 0;
+  z-index: 0;
+}
+
+// --- Product Modal
+
+.cancel-button {
+  background: colors.$retailer-yellow-alt;
+  border: none;
+  color: colors.$retailer-grey;
+  @include fonts.zeitung-semi-bold;
+  font-size: 14px;
+  padding: 0;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 100px;
+  z-index: 10;
+
+  &:hover {
+      cursor: pointer;
+  }
+}
+
+.save-button {
+  background: colors.$retailer-blue;
+  border: none;
+  color: white;
+  @include fonts.zeitung-semi-bold;
+  font-size: 14px;
+  padding: 0;
+  border-radius: 5px;
+  top: 10px;
+  right: 10px;
+  height: 35px;
+  width: 100px;
+  z-index: 10;
+
+  &:hover {
+      cursor: pointer;
+  }
+}
+
+.modal-edit-listing-btns {
+  position: absolute;
+  bottom: 30px;
+  left: 35px;
+  display: flex;
+  gap: 15px;
+}
+
+.modal-edit-listing {
+  z-index: 10;
+  padding: 10px;
+  margin-top: -20px;
+
+  h1 {
+    @include fonts.zeitung-semi-bold;
+    color: colors.$retailer-yellow;
+    margin-top: 0;
+    margin-bottom: 0
+  }
+
+  h4 {
+    @include fonts.outfit-light;
+    color: colors.$retailer-grey;
+    font-size: 17px;
+    margin-top: 0;
+  }
+
+  form {
+    width: 650px;
+    display: flex;
+    column-gap: 45px;
+    row-gap: 13px;
+    flex-wrap: wrap;
+
+    p {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      color: colors.$retailer-grey;
+      @include fonts.outfit-reg;
+      font-size: 15px;
+
+      input {
+        margin-top: 2px;
+        width: 280px;
+        background-color: #ebebeb;
+        border: none;
+        padding: 7px;
+        @include fonts.outfit-light;
+        border-radius: 5px;
+      }
+
+      textarea {
+        width: 100%;
+        background-color: #ebebeb;
+        border: none;
+      }
+    }
+  }
+}
+
+//   Modal Tiles
+
+.modal-img-tile {
+    background-color: transparent;
+}
+
+.modal-info-tile {
+  //   background-color: lightpink;
+    padding: 30px;
+    color: colors.$retailer-grey;
+
+    .modal-title {
+      @include fonts.zeitung-bold;
+      font-size: 22px;
+      padding-bottom: 5px;
+    }
+
+    .modal-details {
+        @include fonts.outfit-reg;
+        font-size: 17px;
+        padding-bottom: 30px;
+    }
+
+    .modal-features {
+      @include fonts.outfit-light;
+      font-size: 14px;
+      padding-bottom: 20px;
+    }
+
+    hr {
+      border-top: 0.3px solid #d6d6d6;
+      background: none;
+      border-bottom: none
+    }
+
+    .modal-price {
+        padding-top: 15px;
+        padding-bottom: 40px;
+      color: colors.$retailer-grey;
+      font-size: 22px;
+      @include fonts.zeitung-semi-bold;
+    }
+    
+
+}
+
+.modal-description-tile {
+  //   background-color: lightblue;
+    padding: 22px;
+}
+
+.modal-message-tile {
+  //   background-color: lightgreen;
+    padding: 22px;
+}
+
+.modal-heading {
+    @include fonts.zeitung-semi-bold;
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 0;
+    color: colors.$retailer-grey;
+    padding: 0;
+}
+
+.modal-description {
+
+
+    p {
+        margin-top: 0;
+        padding-top: 10px;
+        @include fonts.outfit-light;
+        color: colors.$retailer-grey;
+        font-size: 15px;
+        line-height: 20px;
+        overflow: scroll;
+        max-height: 240px;
+    }
+}
+
+
+
+.modal-thumbnail {
+  width: 98%;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
+
+.modal-btns {
+  width: 90%;
+  display: flex;
+  gap: 20px;
+
+   .modal-contact-btn {
+  color: colors.$retailer-grey;
+  background-color: colors.$retailer-yellow-alt;
+} 
+
+.modal-buy-btn {
+  color: white;
+  background-color: colors.$retailer-blue;
+  
+} 
+
+.modal-contact-btn, .modal-buy-btn {
+   font-size: 15px;
+  border-radius: 5px;
+  @include fonts.zeitung-semi-bold; 
+  width: 40%;
+  padding: 8px;
+  border: none;
+}
+}
+
+.user-listing-btn {
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+
+  .user-btn-edit {
+    padding: 8px 30px;
+    border: none;
+    background-color: colors.$retailer-blue;
+    color: white;
+    font-size: 14px;
+    @include fonts.zeitung-semi-bold;
+    border-radius: 5px;
+  }
+
+  .user-btn-delete {
+    padding: 8px 30px;
+    border: none;
+    @include fonts.zeitung-semi-bold;
+    background-color: #D35B5B;
+    color: white;
+    border-radius: 5px;
+  }
+}

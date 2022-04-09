@@ -8,7 +8,6 @@ import ModalRightBg from "../images/modalGraphicRight.png";
 
 export default function Products() {
   const [thumb, setThumb] = useState("iii");
-  const [area, setArea] = useState("iii");
   const [item, setItem] = useState("iii");
 
   const [mydata, setData] = useState([]);
@@ -233,7 +232,7 @@ export default function Products() {
           </div>
 
           <div className="modal-message-tile">
-            <h4 className="modal-heading">Questions</h4>
+            <h4 className="modal-heading">Comments</h4>
           </div>
         </Modal>
         <div className="spacing">a</div>

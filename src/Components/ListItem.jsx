@@ -69,6 +69,7 @@ function ListItem() {
         setIsOpen(true);
       });
   };
+
   return (
     <>
       <img src={Background} className="page-background" />

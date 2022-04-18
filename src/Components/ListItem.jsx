@@ -1,8 +1,8 @@
+/* eslint-disable no-dupe-keys */
 import React from "react";
 import axios from "axios";
 import { useRef } from "react";
 import Modal from "react-modal";
-import "../styles/_listitems.scss";
 import { HiCheck } from "react-icons/hi";
 import { IoIosClose } from "react-icons/io";
 import Background from "../images/half-bg.png";
@@ -19,11 +19,10 @@ function ListItem() {
   const fuelRef = useRef();
   const transmissionRef = useRef();
   const featuresRef = useRef();
-  const userName = useRef();
 
   const [modalIsOpen, setIsOpen] = React.useState(false);
-  // Modal.setAppElement(el);
 
+  // eslint-disable-next-line no-unused-vars
   function openModal() {
     setIsOpen(true);
   }
@@ -32,23 +31,10 @@ function ListItem() {
     setIsOpen(false);
   }
 
-  const onSubmit = (event) => {
+  const onSubmitCreate = (event) => {
     event.preventDefault();
-    console.log(userName.current.value);
-    console.log(yearRef.current.value);
-    console.log(brandRef.current.value);
-    console.log(modelRef.current.value);
-    console.log(priceRef.current.value);
-    console.log(odometerRef.current.value);
-    console.log(engineRef.current.value);
-    console.log(fuelRef.current.value);
-    console.log(transmissionRef.current.value);
-    console.log(featuresRef.current.value);
-    console.log(descriptionRef.current.value);
-    console.log(thumbRef.current.value);
 
-    let formdata = {
-      user: userName.current.value,
+    let formData = {
       year: yearRef.current.value,
       brand: brandRef.current.value,
       model: modelRef.current.value,
@@ -62,8 +48,10 @@ function ListItem() {
       thumb: thumbRef.current.value,
     };
 
+    // post listing with form data
+
     axios
-      .post("//localhost:4000/api/create-product", formdata)
+      .post("//localhost:4000/api/create-product", formData)
       .then((response) => {
         console.log(response);
         setIsOpen(true);
@@ -72,22 +60,13 @@ function ListItem() {
 
   return (
     <>
-      <img src={Background} className="page-background" />
+      <img src={Background} className="page-background" alt="Page background" />
       <div className="list-item-container">
         <div className="title">
           <h1>List Your Car</h1>
         </div>
 
-        <form onSubmit={onSubmit} className="list-form">
-          <p>
-            Username
-            <input
-              type="text"
-              placeholder="john@email.com etc"
-              ref={userName}
-              required
-            />
-          </p>
+        <form onSubmit={onSubmitCreate} className="list-form">
           <div className="form-row-one">
             <p>
               Year
@@ -95,6 +74,7 @@ function ListItem() {
                 type="text"
                 placeholder="year manufactured..."
                 ref={yearRef}
+                required
               />
             </p>
             <p>
@@ -103,6 +83,7 @@ function ListItem() {
                 type="text"
                 placeholder="vehicle brand..."
                 ref={brandRef}
+                required
               />
             </p>
           </div>
@@ -117,25 +98,32 @@ function ListItem() {
               />
             </p>
             <p>
-              Price
-              <input type="number" placeholder="add price..." ref={priceRef} />
+              Price (nzd)
+              <input
+                type="text"
+                placeholder="add price..."
+                ref={priceRef}
+                required
+              />
             </p>
           </div>
           <div className="form-row-three">
             <p>
-              Odometer
+              Odometer (km)
               <input
                 type="text"
                 placeholder="odometer at time of listing..."
                 ref={odometerRef}
+                required
               />
             </p>
             <p>
-              Engine Size
+              Engine Size (cc)
               <input
                 type="text"
                 placeholder="engine size in cc..."
                 ref={engineRef}
+                required
               />
             </p>
           </div>
@@ -146,6 +134,7 @@ function ListItem() {
                 type="text"
                 placeholder="vehicles petrol type..."
                 ref={fuelRef}
+                required
               />
             </p>
             <p>
@@ -154,13 +143,19 @@ function ListItem() {
                 type="text"
                 placeholder="add transmission type..."
                 ref={transmissionRef}
+                required
               />
             </p>
           </div>
 
           <p className="form-row-lg">
             Image Name
-            <input type="text" placeholder="add image name..." ref={thumbRef} />
+            <input
+              type="text"
+              placeholder="year-brand-model.jpeg"
+              ref={thumbRef}
+              required
+            />
           </p>
           <p className="form-row-lg">
             Features
@@ -170,6 +165,7 @@ function ListItem() {
               cols="50"
               placeholder="what makes your vehicle stand out..."
               ref={featuresRef}
+              required
             />
           </p>
           <p className="form-row-lg">
@@ -191,7 +187,6 @@ function ListItem() {
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           ariaHideApp={false}
-          // className="modal-success"
           style={{
             overlay: {
               position: "fixed",

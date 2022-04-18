@@ -1,30 +1,29 @@
 import { useState, useEffect } from "react";
-import { RiLoginBoxLine } from "react-icons/ri";
-import Cookies from "js-cookie"; //https://www.npmjs.com/package/js-cookie
+import Cookies from "js-cookie";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
-import UserAccount from "./UserAccount";
 
 function Login(props) {
   const navigate = useNavigate();
-  const emailInputRef = useRef();
+  const usernameInputRef = useRef();
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setLoggedInStatus] = useState(false);
 
-  const [allowedEmailsArray, setAllowedEmailsArray] = useState([
-    "kevin.dowd@gmail.com",
-    "ryan@ryanbakker.site",
-    "example@email.com",
+  // eslint-disable-next-line no-unused-vars
+  const [allowedUsernamesArray, setAllowedUsernamesArray] = useState([
+    // allowed login usernames
+    "kevin.dowd",
+    "ryanbakker",
+    "example",
   ]);
 
   useEffect(() => {
-    console.log("Logged in =", Cookies.get("logged_in"));
     if (Cookies.get("logged_in")) {
       setLoggedInStatus(true);
       props.onUpdateLoggedInState(true);
     }
-  }, []);
+  }, [props]);
 
   const showLoginForm = () => {
     setShowLogin(!showLogin);
@@ -32,17 +31,19 @@ function Login(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    let userEmail = emailInputRef.current.value;
-    console.log(userEmail);
+    let userName = usernameInputRef.current.value;
+    console.log(userName);
 
-    if (allowedEmailsArray.includes(userEmail)) {
-      console.log("------> ", "allowed");
+    if (allowedUsernamesArray.includes(userName)) {
+      console.log("Login Accepted");
       Cookies.set("logged_in", true, { expires: 1 });
       setLoggedInStatus(true);
       props.onUpdateLoggedInState(true);
       hideLoginBtn();
     }
   };
+
+  // hide and reveal login button
 
   const hideLoginBtn = () => {
     document.querySelector(".login-wrapper span").classList.add("log-remove");
@@ -51,6 +52,8 @@ function Login(props) {
   const showLoginBtn = () => {
     document.querySelector(".login-wrapper span").classList.add("log-show");
   };
+
+  // back to home on logout
 
   const onLogout = () => {
     Cookies.remove("logged_in");
@@ -67,11 +70,10 @@ function Login(props) {
 
       {showLogin && !isLoggedIn && (
         <form onSubmit={onSubmit} className="login-window">
-          {/* <input type='email' defaultValue='kevin.dowd@gmail.com' placeholder='email' ref={emailInputRef} required /> */}
           <input
-            type="email"
-            placeholder="email"
-            ref={emailInputRef}
+            type="text"
+            placeholder="username"
+            ref={usernameInputRef}
             required
           />
           <button type="submit" className="login-submit">

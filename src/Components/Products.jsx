@@ -5,39 +5,36 @@ import Modal from "react-modal";
 import Background from "../images/half-bg.png";
 import ProductsVector from "../images/listingsVector.png";
 import ModalRightBg from "../images/modalGraphicRight.png";
+import Comments from "./Comments";
 
 export default function Products() {
-  const [thumb, setThumb] = useState("iii");
-  const [item, setItem] = useState("iii");
-
+  // eslint-disable-next-line no-unused-vars
+  const [item, setItem] = useState("");
   const [mydata, setData] = useState([]);
-  const [year, setYear] = useState("000");
-  const [brand, setBrand] = useState("ddd");
-  const [model, setModel] = useState("iii");
-  const [description, setDescription] = useState("cccc");
-  const [features, setFeatures] = useState("llll");
-  const [seller, setSeller] = useState("eee");
-  const [price, setPrice] = useState("aaa");
-  const [status, setStatus] = useState("jjj");
-  const [category, setCategory] = useState("iii");
-  const [condition, setCondition] = useState("iii");
-  const [odometer, setOdometer] = useState("iii");
-  const [engine, setEngine] = useState("iii");
-  const [fuel, setFuel] = useState("iii");
-  const [transmission, setTransmission] = useState("iii");
-
+  const [year, setYear] = useState("");
+  const [brand, setBrand] = useState("");
+  const [model, setModel] = useState("");
+  const [thumb, setThumb] = useState("");
+  const [description, setDescription] = useState("");
+  const [features, setFeatures] = useState("");
+  const [price, setPrice] = useState("");
+  const [odometer, setOdometer] = useState("");
+  const [engine, setEngine] = useState("");
+  const [fuel, setFuel] = useState("");
+  const [transmission, setTransmission] = useState("");
   const [modalIsOpen, setIsOpen] = React.useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   function openModal() {
     setIsOpen(true);
   }
 
   function closeModal() {
     setIsOpen(false);
+    console.clear();
   }
 
   function onBuy(id) {
-    // TODO: add buy functionality
     console.log("buy");
   }
 
@@ -46,18 +43,14 @@ export default function Products() {
     axios
       .get(`http://localhost:4000/api/view-product-by-id/${id}`)
       .then((response) => {
-        console.log(response.data);
+        console.table(response.data);
         setYear(response.data.year);
         setBrand(response.data.brand);
         setModel(response.data.model);
         setDescription(response.data.description);
         setFeatures(response.data.features);
-        setSeller(response.data.seller);
         setPrice(response.data.price);
-        setStatus(response.data.status);
-        setCategory(response.data.category);
         setItem(response.data.item);
-        setCondition(response.data.condition);
         setOdometer(response.data.odometer);
         setEngine(response.data.engine);
         setFuel(response.data.fuel);
@@ -75,7 +68,7 @@ export default function Products() {
 
   return (
     <>
-      <img src={Background} className="page-background" />
+      <img src={Background} className="page-background" alt="page background" />
       <div className="products-heading">
         <img src={ProductsVector} alt="" />
         <div className="heading-content">
@@ -111,10 +104,11 @@ export default function Products() {
                   )) || (
                     <img
                       className="item-thumbnail"
-                      src="./images/noimage.jpg"
+                      src="./images/noImage.png"
                       alt="no-img"
                     />
                   )}
+
                   <div className="item-details">
                     <div>
                       <div className="item-title">
@@ -159,7 +153,7 @@ export default function Products() {
               bottom: "20px",
               border: "1px solid #4E69A5",
               background: "#fff",
-              overflow: "hidden",
+              overflow: "auto",
               WebkitOverflowScrolling: "touch",
               borderRadius: "10px",
               outline: "none",
@@ -183,18 +177,18 @@ export default function Products() {
               <img
                 className="modal-thumbnail"
                 src={`${"./images/" + thumb}`}
-                alt="product-img"
+                alt="Car"
               />
             )) || (
               <img
                 className="modal-thumbnail"
-                src="./images/noimage.jpg"
+                src="./images/noImage.png"
                 alt="no-img"
               />
             )}
           </div>
 
-          {/* Modal Infomation tile */}
+          {/* Modal Information tile */}
 
           <div className="modal-info-tile">
             <div className="modal-title">
@@ -215,8 +209,10 @@ export default function Products() {
             </div>
 
             <div className="modal-btns">
-              <button className="modal-contact-btn">Contact Seller</button>
-              <button className="modal-buy-btn" onClick={onBuy}>
+              <button className="modal-contact-btn shadow">
+                Contact Seller
+              </button>
+              <button className="modal-buy-btn shadow" onClick={onBuy}>
                 Buy Now
               </button>
             </div>
@@ -233,6 +229,7 @@ export default function Products() {
 
           <div className="modal-message-tile">
             <h4 className="modal-heading">Comments</h4>
+            <Comments />
           </div>
         </Modal>
         <div className="spacing">a</div>

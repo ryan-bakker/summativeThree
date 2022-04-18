@@ -23,7 +23,14 @@
   flex-direction: column;
   width: 60%;
 
-  .form-row-one, .form-row-two, .form-row-three, .form-row-four {
+  .add-user-name {
+    width: 66%;
+  }
+
+  .form-row-one,
+  .form-row-two,
+  .form-row-three,
+  .form-row-four {
     display: flex;
     flex-direction: row;
     column-gap: 40px;
@@ -100,7 +107,6 @@
 .close {
   display: flex;
   justify-content: flex-start;
-  
 }
 
 .check-success {

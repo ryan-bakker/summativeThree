@@ -9,7 +9,7 @@ import Background from "../images/half-bg.png";
 function EditListing() {
   let navigate = useNavigate();
   let location = useLocation();
-  const [eventObject, setEventObject] = useState({});
+  const [product, setProduct] = useState({});
 
   const onGoBack = (event) => {
     navigate(-1);
@@ -37,7 +37,7 @@ function EditListing() {
         .get(`http://localhost:4000/api/view-product-by-id/${location.state}`)
         .then((response) => {
           if (response.status === 200 && response.data != null) {
-            setEventObject(response.data);
+            setProduct(response.data);
           }
         });
     }
@@ -94,7 +94,7 @@ function EditListing() {
                   type="text"
                   placeholder="year"
                   name="product_year"
-                  defaultValue={eventObject.year}
+                  defaultValue={product.year}
                 />
               </p>
               <p className="form-item">
@@ -103,7 +103,7 @@ function EditListing() {
                   type="text"
                   placeholder="brand"
                   name="product_brand"
-                  defaultValue={eventObject.brand}
+                  defaultValue={product.brand}
                 />
               </p>
             </div>
@@ -114,7 +114,7 @@ function EditListing() {
                   type="text"
                   placeholder="model"
                   name="product_model"
-                  defaultValue={eventObject.model}
+                  defaultValue={product.model}
                 />
               </p>
               <p className="form-item">
@@ -123,7 +123,7 @@ function EditListing() {
                   type="text"
                   placeholder="price"
                   name="product_price"
-                  defaultValue={eventObject.price}
+                  defaultValue={product.price}
                 />
               </p>
             </div>
@@ -135,7 +135,7 @@ function EditListing() {
                   type="text"
                   placeholder="odometer"
                   name="product_odometer"
-                  defaultValue={eventObject.odometer}
+                  defaultValue={product.odometer}
                 />
               </p>
               <p className="form-item">
@@ -144,7 +144,7 @@ function EditListing() {
                   type="text"
                   placeholder="engine"
                   name="product_engine"
-                  defaultValue={eventObject.engine}
+                  defaultValue={product.engine}
                 />
               </p>
             </div>
@@ -156,7 +156,7 @@ function EditListing() {
                   type="text"
                   placeholder="fuel"
                   name="product_fuel"
-                  defaultValue={eventObject.fuel}
+                  defaultValue={product.fuel}
                 />
               </p>
               <p className="form-item">
@@ -165,7 +165,7 @@ function EditListing() {
                   type="text"
                   placeholder="transmission"
                   name="product_transmission"
-                  defaultValue={eventObject.transmission}
+                  defaultValue={product.transmission}
                 />
               </p>
             </div>
@@ -177,7 +177,7 @@ function EditListing() {
                   type="text"
                   placeholder="thumb"
                   name="product_thumb"
-                  defaultValue={eventObject.thumb}
+                  defaultValue={product.thumb}
                 />
               </p>
             </div>
@@ -189,7 +189,7 @@ function EditListing() {
                   type="text"
                   placeholder="features"
                   name="product_features"
-                  defaultValue={eventObject.features}
+                  defaultValue={product.features}
                 />
               </p>
             </div>
@@ -201,7 +201,7 @@ function EditListing() {
                   type="text"
                   placeholder="description"
                   name="product_description"
-                  defaultValue={eventObject.description}
+                  defaultValue={product.description}
                 />
               </p>
             </div>
